@@ -4,7 +4,7 @@ TODO: Add project image
 
 TODO: Add link to a live demo
 
-**Current Version:** 0.0.6
+**Current Version:** 0.0.7
 
 ## Expanded Version Description:
 
@@ -65,6 +65,15 @@ Thanks Postman.
 - Express.js
 
 ## Version History:
+
+**Version 0.0.7:**
+
+Implemented client navigation and super ugly login form.
+
+Currently the form simply navigates to the library when the user clicks the
+button.
+
+I may added authentication at a later stage or remove the login feature.
 
 **Version 0.0.6:**
 

@@ -1,24 +1,26 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
+import {
+	BrowserRouter as Router,
+	Route,
+	Switch,
+	Redirect,
+} from "react-router-dom";
 
-import { getAllGames } from "./api/index.js";
-
-import Library from "./components/Library";
+// Routes
+import Home from "./components/Home/Home.js";
+import Library from "./components/Library/Library.js";
+import Game from "./components/Library/Game/Game.js";
 
 function App() {
-	const [games, setGames] = useState([]);
-
-	useEffect(() => {
-		const games = getAllGames();
-
-		console.log(games);
-	}, []);
-
 	return (
-		<main>
-			<header>Toolbar</header>
-
-			<Library />
-		</main>
+		<Router>
+			<Switch>
+				<Route exact path="/" component={Home} />
+				<Route exact path="/games" component={Library} />
+				<Route exact path="/games/:id" component={Game} />
+				<Redirect to="/" component={Home} />
+			</Switch>
+		</Router>
 	);
 }
 

@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 
-const Game = () => {
+const Game = ({ game }) => {
 	return (
 		<div>
 			<h2>Game</h2>
