@@ -4,7 +4,7 @@ TODO: Add project image
 
 TODO: Add link to a live demo
 
-**Current Version:** 0.0.5
+**Current Version:** 0.0.6
 
 ## Expanded Version Description:
 
@@ -65,6 +65,13 @@ Thanks Postman.
 - Express.js
 
 ## Version History:
+
+**Version 0.0.6:**
+
+Created client side API routes.
+
+Also fixed a minor bug which was causing a cross origin request error. I had
+placed the cors middleware in the wrong section of server/index.js
 
 **Version 0.0.5:**
 

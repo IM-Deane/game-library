@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-import { getAllGames } from "./api/index";
+import { getAllGames } from "./api/index.js";
 
 import Library from "./components/Library";
 
@@ -8,7 +8,7 @@ function App() {
 	const [games, setGames] = useState([]);
 
 	useEffect(() => {
-		setGames(getAllGames());
+		const games = getAllGames();
 
 		console.log(games);
 	}, []);
