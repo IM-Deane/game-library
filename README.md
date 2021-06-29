@@ -4,11 +4,28 @@ TODO: Add project image
 
 TODO: Add link to a live demo
 
-**Current Version:** 0.0.3
+**Current Version:** 0.0.4
 
-## Description:
+## Expanded Version Description:
 
-The goal of this project is to practice building a RESTful API.
+After completing the backend API I've decided to make the app more interesting.
+The next version will feature a client side interface that allows users to
+manage a small game library.
+
+The app will come populated with 10 games that will be rendered as a list. The
+user can add new games to the library as well edit and delete existing titles.
+
+### Stack:
+
+- HTML5
+- TAILWIND CSS
+- REACT
+- MONGO DB
+- EXPRESS/NODE
+
+## Previous Version Description:
+
+~~The goal of this project is to practice building a RESTful API.~~
 
 Although i've built one before, I thought it would be good practice to create
 another one.
@@ -48,6 +65,10 @@ Thanks Postman.
 - Express.js
 
 ## Version History:
+
+**Version 0.0.4:**
+
+Created client side boilerplate using creat-react-app and tailwindcss.
 
 **Version 0.0.3:**
 
