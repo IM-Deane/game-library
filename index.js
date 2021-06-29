@@ -11,6 +11,9 @@ const PORT = process.env.PORT || 5500;
 
 app.use(bodyParser.json());
 
+// Middleware
+app.use("/users", usersRoutes);
+
 // Routes
 app.get("/", (req, res) => res.send("Hello from the homepage!"));
 
