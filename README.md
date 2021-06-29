@@ -4,7 +4,7 @@ TODO: Add project image
 
 TODO: Add link to a live demo
 
-**Current Version:** 0.0.2
+**Current Version:** 0.0.3
 
 ## Description:
 
@@ -48,6 +48,16 @@ Thanks Postman.
 - Express.js
 
 ## Version History:
+
+**Version 0.0.3:**
+
+Removed the CRUD logic from the routes module and inserted it into a controllers
+module.
+
+Separating the logic from the routes makes the app easier to manage in my
+opinion.
+
+I believe this is also "best practice" for medium sized to large scale projects.
 
 **Version 0.0.2:**
 
