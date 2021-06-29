@@ -1,8 +1,24 @@
+import React, { useEffect, useState } from "react";
+
+import { getAllGames } from "./api/index";
+
+import Library from "./components/Library";
+
 function App() {
+	const [games, setGames] = useState([]);
+
+	useEffect(() => {
+		setGames(getAllGames());
+
+		console.log(games);
+	}, []);
+
 	return (
-		<div style={{ margin: "0 auto" }}>
-			<h1>Hello world!</h1>
-		</div>
+		<main>
+			<header>Toolbar</header>
+
+			<Library />
+		</main>
 	);
 }
 

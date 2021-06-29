@@ -4,7 +4,7 @@ TODO: Add project image
 
 TODO: Add link to a live demo
 
-**Current Version:** 0.0.4
+**Current Version:** 0.0.5
 
 ## Expanded Version Description:
 
@@ -65,6 +65,17 @@ Thanks Postman.
 - Express.js
 
 ## Version History:
+
+**Version 0.0.5:**
+
+Implemented new server-side routing that will handle the CRUD functions of the
+game library app.
+
+Currently the app's "database" is an array of javascript objects stored in the
+controllers folder.
+
+After the client routing/api is ready, I will create a populated mongodb
+database.
 
 **Version 0.0.4:**
 
