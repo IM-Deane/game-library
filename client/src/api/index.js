@@ -6,7 +6,7 @@ const API = axios.create({ baseURL: "http://localhost:5000" });
 export const getAllGames = () => API.get("/games");
 
 // Get specified game
-export const getGames = (id) => API.get(`/games/${id}`);
+export const getGame = (id) => API.get(`/games/${id}`);
 
 // Add new game
 export const addGame = (newGame) => API.post("/games", newGame);

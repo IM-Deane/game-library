@@ -4,7 +4,7 @@ TODO: Add project image
 
 TODO: Add link to a live demo
 
-**Current Version:** 0.0.7
+**Current Version:** 0.0.8
 
 ## Expanded Version Description:
 
@@ -65,6 +65,18 @@ Thanks Postman.
 - Express.js
 
 ## Version History:
+
+**Version 0.0.8:**
+
+Added a game details page.
+
+This page will present the user with a full page view of the game details. It
+will also allow them to edit and delete the game.
+
+In a future update I may add buttons that will allow the user to update/delete
+the game without navigating to this page.
+
+In which case, the page would serve more as a general details screen.
 
 **Version 0.0.7:**
 

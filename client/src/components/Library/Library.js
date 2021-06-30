@@ -10,8 +10,6 @@ const Library = () => {
 	const handleGames = async () => {
 		const { data } = await getAllGames();
 
-		console.log(data);
-
 		await setGames(data);
 	};
 
@@ -25,7 +23,13 @@ const Library = () => {
 				<h2>My Game Library</h2>
 			</header>
 			{/* Games section */}
-			<section>
+			<section
+				style={{
+					display: "flex",
+					flexDirection: "column",
+					alignItems: "center",
+				}}
+			>
 				{games && games.map((game, index) => <Game key={index} game={game} />)}
 			</section>
 		</div>

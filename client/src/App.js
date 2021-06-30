@@ -9,7 +9,7 @@ import {
 // Routes
 import Home from "./components/Home/Home.js";
 import Library from "./components/Library/Library.js";
-import Game from "./components/Library/Game/Game.js";
+import Game from "./components/Library/Game/GameDetails";
 
 function App() {
 	return (
