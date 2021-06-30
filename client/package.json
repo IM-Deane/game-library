@@ -4,21 +4,23 @@
 	"private": true,
 	"proxy": "http://localhost:5000",
 	"dependencies": {
-		"@craco/craco": "^6.1.2",
+		"@material-ui/core": "^4.11.4",
+		"@material-ui/icons": "^4.11.2",
 		"@testing-library/jest-dom": "^5.14.1",
 		"@testing-library/react": "^11.2.7",
 		"@testing-library/user-event": "^12.8.3",
 		"axios": "^0.21.1",
 		"react": "^17.0.2",
 		"react-dom": "^17.0.2",
+		"react-file-base64": "^1.0.3",
 		"react-router-dom": "^5.2.0",
 		"react-scripts": "4.0.3",
 		"web-vitals": "^1.1.2"
 	},
 	"scripts": {
-		"start": "craco start",
-		"build": "craco build",
-		"test": "craco test",
+		"start": "react-scripts start",
+		"build": "react-scripts build",
+		"test": "react-scripts test",
 		"eject": "react-scripts eject"
 	},
 	"eslintConfig": {
@@ -38,10 +40,5 @@
 			"last 1 firefox version",
 			"last 1 safari version"
 		]
-	},
-	"devDependencies": {
-		"autoprefixer": "^9.8.6",
-		"postcss": "^7.0.36",
-		"tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.2.4"
 	}
 }

@@ -4,7 +4,7 @@ TODO: Add project image
 
 TODO: Add link to a live demo
 
-**Current Version:** 0.0.8
+**Current Version:** 0.0.9
 
 ## Expanded Version Description:
 
@@ -18,7 +18,7 @@ user can add new games to the library as well edit and delete existing titles.
 ### Stack:
 
 - HTML5
-- TAILWIND CSS
+- Material-UI
 - REACT
 - MONGO DB
 - EXPRESS/NODE
@@ -65,6 +65,19 @@ Thanks Postman.
 - Express.js
 
 ## Version History:
+
+**Version 0.0.9:**
+
+Decided to change the CSS framework from Tailwindcss to Material-ui.
+
+I made this decision to speed up the applications development. I am currently
+still learning both M-Ui and Styled-Components. So I feel like its not a great
+idea to add a 3rd library to the mix.
+
+This change should enable me to finish the apps main design within the next few
+versions/commits.
+
+After that, I intend to implement the MongoDB database.
 
 **Version 0.0.8:**
 

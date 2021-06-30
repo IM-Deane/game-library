@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
-
 import { getAllGames } from "../../api/index";
-
 import Game from "./Game/Game.js";
 
+import { Paper, Grid, Typography } from "@material-ui/core";
+import { useStyles } from "./styles";
+
 const Library = () => {
+	const classes = useStyles();
 	const [games, setGames] = useState([]);
 
 	const handleGames = async () => {
@@ -18,21 +20,20 @@ const Library = () => {
 	}, []);
 
 	return (
-		<div>
-			<header>
-				<h2>My Game Library</h2>
-			</header>
-			{/* Games section */}
-			<section
-				style={{
-					display: "flex",
-					flexDirection: "column",
-					alignItems: "center",
-				}}
-			>
-				{games && games.map((game, index) => <Game key={index} game={game} />)}
-			</section>
-		</div>
+		<Grid container className={classes.container}>
+			<Paper elevation={6}>
+				<Grid container>
+					<Grid item>
+						<Typography variant="h3">My Game Library</Typography>
+					</Grid>
+					{/* Games section */}
+					<Grid item>
+						{games &&
+							games.map((game, index) => <Game key={index} game={game} />)}
+					</Grid>
+				</Grid>
+			</Paper>
+		</Grid>
 	);
 };
 

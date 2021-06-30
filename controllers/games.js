@@ -33,9 +33,8 @@ export const getAllGames = (req, res) => {
 // Specified game
 export const getGame = (req, res) => {
 	const { id } = req.params;
-	try {
-		console.log(`Get game with id of ${id}`);
 
+	try {
 		const game = games.find((game) => game.id === id);
 
 		res.status(203).send(game);
@@ -76,7 +75,7 @@ export const updateGame = (req, res) => {
 			updatedGame.title = title;
 		}
 		if (coverArt) {
-			updatedGame.cover = cover;
+			updatedGame.coverArt = coverArt;
 		}
 		if (description) {
 			updatedGame.description = description;
