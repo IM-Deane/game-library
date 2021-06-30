@@ -75,6 +75,11 @@ Thanks Postman.
 
 ## Version History:
 
+**Version 0.1.1:**
+
+Styled the game details page. It is currently a vertical card that takes up a
+majority of the viewport.
+
 **Version 0.1.0:**
 
 Implemented a custom site color theme, login page, library page, and game edit

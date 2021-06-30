@@ -1,96 +1,91 @@
 import React, { useState, useEffect } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link as RouterLink } from "react-router-dom";
 
 import {
+	Container,
+	Grid,
+	Paper,
 	Card,
-	CardActionArea,
-	CardAction,
+	CardActions,
 	CardContent,
 	CardMedia,
+	Divider,
 	Button,
 	Typography,
+	Link,
 } from "@material-ui/core";
+
+import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 
 // Get single game details
 import { getGame } from "../../../../api/index";
 
-// File uploader
-import FileBase from "react-file-base64";
-// Goal of this page is to display more info about the game
-// and allow user to edit its settings
+import { useStyles } from "./styles";
 
 const GameDetails = () => {
+	const classes = useStyles();
+	const { id } = useParams();
 	const [game, setGame] = useState({
 		title: "",
 		coverArt: "",
 		description: "",
 		releaseDate: "",
 	});
-	const [editMode, setEditMode] = useState(false);
-	const { id } = useParams();
 
 	const getGameDetails = async () => {
 		const { data } = await getGame(id);
 
 		await setGame(data);
+
+		await localStorage.setItem("game", data);
 	};
 
-	const handleFileInput = (file) => {
-		// Supported image formats
-		const types = ["image/jpeg", "image/jpg", "image/png"];
-
-		console.log(file);
-
-		// Handle empty files
-		if (!file) return alert("Detected an empty file input. Please try again.");
-
-		// Check if file format is supported
-		// if (!types.forEach((type) => file.search(type)))
-		// 	return alert(
-		// 		"File type not supported! Please upload an image in jpeg, jpg, or png format."
-		// 	);
-
-		setGame({ ...game, coverArt: file });
-	};
-
-	// Fetch game from DB
+	// Fetch game from DB or localstorage on page reload
 	useEffect(() => {
 		if (id) {
 			getGameDetails();
+		} else if (localStorage.getItem("game")) {
+			setGame(localStorage.getItem("game"));
 		}
-	}, []);
+	}, [id]);
 
 	return (
-		<Card>
-			<h2>{editMode ? "Editing Game" : "Game details"}</h2>
-			<button onClick={() => setEditMode(!editMode)}>Toggle Edit mode</button>
+		<div className={classes.root}>
+			<Container maxWidth="lg">
+				<Paper elevation={7} component="main" className={classes.paper}>
+					<Card className={classes.card}>
+						<CardMedia
+							className={classes.cardMedia}
+							image="https://source.unsplash.com/random"
+							title={game?.title}
+						/>
+						<CardContent className={classes.cardContent}>
+							<Typography variant="h4" component="h2">
+								{game?.title}
+							</Typography>
+							<Typography gutterBottom variant="subtitle2" component="p">
+								Release Date: {game?.releaseDate}
+							</Typography>
+							<Divider className={classes.divider} />
+							<Typography component="p">{game?.description}</Typography>
+							{/* Rate game? */}
 
-			<Link style={{ color: "blue", textDecoration: "underline" }} to="/games">
-				Go back to library
-			</Link>
-
-			<p>{game.title}</p>
-
-			{/* Toggle Edit mode  */}
-
-			{editMode ? (
-				<div>
-					<form>Edit form</form>
-					<FileBase
-						type="file"
-						multiple={false}
-						onDone={({ base64 }) => handleFileInput(base64)}
-					/>
-				</div>
-			) : (
-				<div>
-					<img src={game.coverArt} alt={game.title} />
-					<h3>{game.title}</h3>
-					<p>{game.description}</p>
-					<small style={{ color: "grey" }}>{game.releaseDate}</small>
-				</div>
-			)}
-		</Card>
+							<CardActions className={classes.cardActions}>
+								<Link
+									component={RouterLink}
+									color="primary"
+									underline="hover"
+									className={classes.backLink}
+									to="/games"
+								>
+									<ArrowBackIcon /> Go back to library
+								</Link>
+							</CardActions>
+						</CardContent>
+					</Card>
+				</Paper>
+			</Container>
+		</div>
 	);
 };
 
