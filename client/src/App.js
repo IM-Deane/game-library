@@ -18,16 +18,14 @@ function App() {
 	return (
 		<React.Fragment>
 			<CssBaseline />
-			<Container maxWidth="lg">
-				<Router>
-					<Switch>
-						<Route exact path="/" component={Home} />
-						<Route exact path="/games" component={Library} />
-						<Route exact path="/games/:id" component={Game} />
-						<Redirect to="/" component={Home} />
-					</Switch>
-				</Router>
-			</Container>
+			<Router>
+				<Switch>
+					<Route exact path="/" component={Home} />
+					<Route exact path="/games" component={Library} />
+					<Route exact path="/games/:id" component={Game} />
+					<Redirect to="/" component={Home} />
+				</Switch>
+			</Router>
 		</React.Fragment>
 	);
 }

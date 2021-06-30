@@ -4,7 +4,7 @@ TODO: Add project image
 
 TODO: Add link to a live demo
 
-**Current Version:** 0.0.9
+**Current Version:** 0.1.0
 
 ## Expanded Version Description:
 
@@ -32,7 +32,7 @@ development stack.
 - MONGO DB
 - EXPRESS/NODE
 
-## Previous Version Description:
+## Previous Version:
 
 ~~The goal of this project is to practice building a RESTful API.~~
 
@@ -75,15 +75,47 @@ Thanks Postman.
 
 ## Version History:
 
+**Version 0.1.0:**
+
+Implemented a custom site color theme, login page, library page, and game edit
+modal.
+
+_Login page:_
+
+Since the application's primary goal is to practice working with API's, I
+decided to use a login form
+[template](https://github.com/mui-org/material-ui/tree/master/docs/src/pages/getting-started/templates/sign-in-side).
+
+As the app will not have true authentication or profiles, the form simply
+simulates the login feature.
+
+_Library:_ The library constitutes the main view of the application. It will
+render a list of cards which contain details about the games.
+
+The current card images are randomly fetched from unsplash.com.
+
+Eventually, I will implement the cover art as the source images.
+
+_Edit Modal:_ The edit modal allows the user to edit the game without switching
+to a new page.
+
+Currently, this feature displays a material-ui dialog box when the user clicks
+the edit button.
+
+In the next few updates, I will implement a save changes button and a delete
+button.
+
+The card details page simply provides them with a full view of the game details.
+
 **Version 0.0.9:**
 
 Decided to change the CSS framework from Tailwindcss to Material-ui.
 
 I made this decision to speed up the applications development. I am currently
-still learning both M-Ui and Styled-Components. So I feel like its not a great
+still learning both M-Ui and Styled-Components. So I felt like it wasn't a great
 idea to add a 3rd library to the mix.
 
-This change should enable me to finish the apps main design within the next few
+This change should enable me to finish the app's main design within the next few
 versions/commits.
 
 After that, I intend to implement the MongoDB database.

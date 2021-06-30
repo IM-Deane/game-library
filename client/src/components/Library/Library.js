@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 import { getAllGames } from "../../api/index";
 import Game from "./Game/Game.js";
 
-import { Paper, Grid, Typography } from "@material-ui/core";
+import { Container, Paper, Grid, Typography, Avatar } from "@material-ui/core";
+import SportsEsportsIcon from "@material-ui/icons/SportsEsports";
 import { useStyles } from "./styles";
 
 const Library = () => {
@@ -20,19 +21,28 @@ const Library = () => {
 	}, []);
 
 	return (
-		<Grid container className={classes.container}>
-			<Paper elevation={6}>
-				<Grid container>
-					<Grid item>
-						<Typography variant="h3">My Game Library</Typography>
-					</Grid>
-					{/* Games section */}
-					<Grid item>
-						{games &&
-							games.map((game, index) => <Game key={index} game={game} />)}
-					</Grid>
+		<Grid container className={classes.root}>
+			<Grid container direction="column" justify="center" alignItems="center">
+				<Grid item component="header">
+					<Paper className={classes.header} square>
+						<Typography variant="h3" component="h1">
+							Game Manager
+						</Typography>
+						<Avatar variant="rounded" className={classes.avatarLarge}>
+							<SportsEsportsIcon fontSize="large" />
+						</Avatar>
+					</Paper>
 				</Grid>
-			</Paper>
+				{/* Games section */}
+				<Container item>
+					<Container maxWidth="lg" className={classes.cardGrid}>
+						<Grid container spacing={4} justify="center">
+							{games &&
+								games.map((game, index) => <Game key={index} game={game} />)}
+						</Grid>
+					</Container>
+				</Container>
+			</Grid>
 		</Grid>
 	);
 };
