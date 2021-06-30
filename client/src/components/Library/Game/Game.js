@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 
-import { Link } from "react-router-dom";
+import { Link as RouterLink } from "react-router-dom";
 
 import {
 	Grid,
 	Card,
 	CardActions,
+	Link,
 	CardContent,
 	CardMedia,
 	Button,
@@ -62,38 +63,24 @@ const Game = ({ game }) => {
 	return (
 		<>
 			<Grid item xs={12} sm={6} md={4} xl={6}>
-				<Card className={classes.card}>
-					<CardMedia
-						className={classes.cardMedia}
-						image="https://source.unsplash.com/random"
-						title={title}
-					/>
-					<CardContent className={classes.cardContent}>
-						<Typography gutterBottom variant="h4" component="h2">
-							{title}
-						</Typography>
-						<Typography component="p">{description}</Typography>
-					</CardContent>
-					<CardActions>
-						<Button
-							variant="contained"
-							color="primary"
-							component={Link}
-							to={`/games/${id}`}
-							endIcon={<LaunchIcon />}
-						>
-							View Details
-						</Button>
-						<Button
-							variant="contained"
-							color="secondary"
-							endIcon={<EditIcon />}
-							onClick={handleEditForm}
-						>
-							Edit
-						</Button>
-					</CardActions>
-				</Card>
+				<Link
+					component={RouterLink}
+					to={`/games/${id}`}
+					className={classes.cardLink}
+				>
+					<Card className={classes.card}>
+						<CardMedia
+							className={classes.cardMedia}
+							image="https://source.unsplash.com/random"
+							title={title}
+						/>
+						<CardContent className={classes.cardContent}>
+							<Typography gutterBottom variant="h5" component="h2">
+								{title}
+							</Typography>
+						</CardContent>
+					</Card>
+				</Link>
 			</Grid>
 			<Dialog
 				open={showEditForm}

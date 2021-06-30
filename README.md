@@ -4,7 +4,7 @@ TODO: Add project image
 
 TODO: Add link to a live demo
 
-**Current Version:** 0.1.0
+**Current Version:** 0.1.2
 
 ## Expanded Version Description:
 
@@ -74,6 +74,20 @@ Thanks Postman.
 - Express.js
 
 ## Version History:
+
+**Version 0.1.2:**
+
+Began modifying the layout of the site to accommodate a toolbar.
+
+I would like to experiment with having a toolbar that will display information
+about the game library.
+
+I have also modifed the library cards to only display the coverart and title.
+After researching the dashboards of xbox and steam, I found that they both opted
+to let the coverart tell the user which game they were looking at.
+
+This will also make the game details screen less redundant as it currently
+displays the same info to the user.
 
 **Version 0.1.1:**
 
