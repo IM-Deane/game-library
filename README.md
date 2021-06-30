@@ -1,4 +1,4 @@
-# Project: Building a RESTful API
+# Project: Game Library Manager
 
 TODO: Add project image
 
@@ -8,12 +8,21 @@ TODO: Add link to a live demo
 
 ## Expanded Version Description:
 
-After completing the backend API I've decided to make the app more interesting.
+This project began as a simple backend express application. The goal was to
+practice building a RESTful API.
+
+However, after completing the API I've decided to make the app more interesting.
 The next version will feature a client side interface that allows users to
 manage a small game library.
 
 The app will come populated with 10 games that will be rendered as a list. The
 user can add new games to the library as well edit and delete existing titles.
+
+The expected outcome of this new version is a small but fully functional MERN
+application.
+
+After it's completion, I will have hopefully solidified my understanding of this
+development stack.
 
 ### Stack:
 
