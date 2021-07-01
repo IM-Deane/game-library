@@ -4,7 +4,7 @@ TODO: Add project image
 
 TODO: Add link to a live demo
 
-**Current Version:** 0.1.3
+**Current Version:** 0.1.4
 
 ## Expanded Version Description:
 
@@ -74,6 +74,16 @@ Thanks Postman.
 - Express.js
 
 ## Version History:
+
+**Version 0.1.4:**
+
+Officially connected the server to the MongoDB database.
+
+When a user opts to upload a game to the library, it is now saved in the
+database.
+
+The next few versions will be focused on converting the server routes to post
+and fetch data to the database.
 
 **Version 0.1.3:**
 
