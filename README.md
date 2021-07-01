@@ -4,7 +4,7 @@ TODO: Add project image
 
 TODO: Add link to a live demo
 
-**Current Version:** 0.1.2
+**Current Version:** 0.1.3
 
 ## Expanded Version Description:
 
@@ -74,6 +74,16 @@ Thanks Postman.
 - Express.js
 
 ## Version History:
+
+**Version 0.1.3:**
+
+Created an upload feature for the game library. When the upload button in the
+sidebar is clicked, it will open a game creation form.
+
+This form will enable users to add a new game entry and "upload" it to the
+library.
+
+All the fields are required.
 
 **Version 0.1.2:**
 

@@ -20,7 +20,7 @@ const Library = () => {
 	}, []);
 
 	return (
-		<Grid container spacing={4} justify="center">
+		<Grid container spacing={4} justify="center" style={{ marginTop: "40px" }}>
 			{games && games.map((game, index) => <Game key={index} game={game} />)}
 		</Grid>
 	);
