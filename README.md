@@ -75,6 +75,14 @@ Thanks Postman.
 
 ## Version History:
 
+**Version 0.1.5:**
+
+Updated the server controller logic to reflect the newly implemented MongoDB
+database.
+
+Althought the logic is present and posts are being added and fetched from the
+DB, further testing is needed.
+
 **Version 0.1.4:**
 
 Officially connected the server to the MongoDB database.

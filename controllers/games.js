@@ -119,7 +119,9 @@ export const getGame = async (req, res) => {
 	const { id } = req.params;
 
 	try {
-		const game = games.find((game) => game.id === id);
+		const game = await Games.findById(id);
+
+		// const game = games.find((game) => game.id === id);
 
 		res.status(203).send(game);
 	} catch (error) {
@@ -131,15 +133,15 @@ export const getGame = async (req, res) => {
 export const addGame = async (req, res) => {
 	const game = req.body;
 
-	console.log(game);
+	// Create new game object
 	const newGame = new Games({
 		...game,
 		createdAt: new Date().toISOString(),
-		id: uuidv4(),
+		_id: uuidv4(),
 	});
 
 	try {
-		// Add to DB
+		// Add game to DB
 		await newGame.save();
 		res.status(201).send("Game successfully added.");
 	} catch (error) {
@@ -150,26 +152,23 @@ export const addGame = async (req, res) => {
 // Update game
 export const updateGame = async (req, res) => {
 	const { id } = req.params;
-	const { title, coverArt, description, releaseDate } = req.body;
+	const game = req.body;
 
 	try {
-		console.log(`Game with id of ${id} has been found.`);
-		const updatedGame = games.find((game) => game.id === id);
+		// Handle 404
+		if (!mongoose.Types.ObjectId.isValid(id))
+			return res.status(404).send("No games with that id!");
 
-		if (title) {
-			updatedGame.title = title;
-		}
-		if (coverArt) {
-			updatedGame.coverArt = coverArt;
-		}
-		if (description) {
-			updatedGame.description = description;
-		}
-		if (releaseDate) {
-			updatedGame.releaseDate = releaseDate;
-		}
+		// Find game and update the specified fields
+		const updatedGame = await Games.findByIdAndUpdate(
+			id,
+			{ ...game, id },
+			{ new: true }
+		);
 
-		res.status(200).send(updatedGame);
+		// const updatedGame = games.find((game) => game.id === id);
+
+		res.status(200).json(updatedGame);
 	} catch (error) {
 		console.log(error);
 	}
@@ -181,13 +180,15 @@ export const deleteGame = async (req, res) => {
 
 	try {
 		// Check if game exists
-		if (!games.find((game) => game.id === id))
-			return res.status(404).send("Game not found.");
+		if (!mongoose.Types.ObjectId.isValid(id))
+			return res.status(404).send("No games with that id!");
 
 		// Remove game from database
-		games = games.filter((game) => game.id !== id);
+		await Games.findByIdAndRemove(id);
 
-		res.status(202).send("Game has been deleted from the library.");
+		res
+			.status(202)
+			.json({ message: "Game has been deleted from the library." });
 	} catch (error) {
 		console.log(error);
 	}

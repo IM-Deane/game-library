@@ -36,16 +36,12 @@ const GameDetails = () => {
 		const { data } = await getGame(id);
 
 		await setGame(data);
-
-		await localStorage.setItem("game", data);
 	};
 
 	// Fetch game from DB or localstorage on page reload
 	useEffect(() => {
 		if (id) {
 			getGameDetails();
-		} else if (localStorage.getItem("game")) {
-			setGame(localStorage.getItem("game"));
 		}
 	}, [id]);
 
@@ -56,7 +52,7 @@ const GameDetails = () => {
 					<Card className={classes.card}>
 						<CardMedia
 							className={classes.cardMedia}
-							image="https://source.unsplash.com/random"
+							image={game?.coverArt}
 							title={game?.title}
 						/>
 						<CardContent className={classes.cardContent}>

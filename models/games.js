@@ -6,7 +6,7 @@ const gameSchema = mongoose.Schema({
 	coverArt: { type: String, required: true },
 	releaseDate: { type: String, required: true },
 	createdAt: { type: Date, required: true },
-	id: { type: String },
+	_id: { type: String },
 });
 
 export default mongoose.model("Games", gameSchema);
