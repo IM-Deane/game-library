@@ -40,11 +40,6 @@ const Game = ({ game }) => {
 							image={coverArt ? coverArt : "https://source.unsplash.com/random"}
 							title={title}
 						/>
-						<CardContent className={classes.cardContent}>
-							<Typography gutterBottom variant="h5" component="h2">
-								{title}
-							</Typography>
-						</CardContent>
 					</Card>
 				</Link>
 			</Grid>

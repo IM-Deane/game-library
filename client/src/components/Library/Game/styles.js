@@ -7,13 +7,17 @@ export const useStyles = makeStyles((theme) => ({
 		flexDirection: "column",
 		color: theme.palette.text.light,
 		backgroundColor: theme.palette.background.dark,
+		transition: "0.4s",
 		"&:hover": {
 			backgroundColor: theme.palette.background.light,
 			color: theme.palette.text.dark,
+			transform: "scale(1.1)",
 		},
 	},
 	cardMedia: {
-		paddingTop: "56.25%", // 16:9
+		// paddingTop: "56.25%", // 16:9
+		width: "100%",
+		height: "350px",
 	},
 	cardContent: {
 		flexGrow: 1,
