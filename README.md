@@ -4,7 +4,7 @@ TODO: Add project image
 
 TODO: Add link to a live demo
 
-**Current Version:** 0.1.4
+**Current Version:** 0.1.6
 
 ## Expanded Version Description:
 
@@ -74,6 +74,11 @@ Thanks Postman.
 - Express.js
 
 ## Version History:
+
+**Version 0.1.6:**
+
+Made minor style adjustment to the game cards. The title has been removed and
+i've added a small hover animation.
 
 **Version 0.1.5:**
 
