@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { Link as NavLink, useHistory } from "react-router-dom";
 
 import { addGame } from "../../api/index";
-import base64 from "base-64";
 
 // Classname utility for creating conditional classes
 import clsx from "clsx";
@@ -126,7 +125,7 @@ const Layout = ({ Content }) => {
 	useEffect(() => {
 		window.addEventListener("resize", handleWidthChange);
 		// Toggle viewport on smaller screens
-		if (width <= 650) {
+		if (width <= 700) {
 			handleDrawerClose();
 		} else {
 			handleDrawerOpen();
@@ -183,7 +182,7 @@ const Layout = ({ Content }) => {
 				<List>
 					<ListItem
 						button
-						style={{ paddingLeft: "24px" }}
+						style={{ paddingLeft: "18px" }}
 						onClick={toggleUploadForm}
 					>
 						<ListItemIcon>

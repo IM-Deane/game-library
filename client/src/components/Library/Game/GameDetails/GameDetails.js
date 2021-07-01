@@ -46,42 +46,45 @@ const GameDetails = () => {
 	}, [id]);
 
 	return (
-		<div className={classes.root}>
-			<Container maxWidth="lg">
-				<Paper elevation={7} component="main" className={classes.paper}>
-					<Card className={classes.card}>
-						<CardMedia
-							className={classes.cardMedia}
-							image={game?.coverArt}
-							title={game?.title}
-						/>
-						<CardContent className={classes.cardContent}>
-							<Typography variant="h4" component="h2">
-								{game?.title}
-							</Typography>
-							<Typography gutterBottom variant="subtitle2" component="p">
-								Release Date: {game?.releaseDate}
-							</Typography>
-							<Divider className={classes.divider} />
-							<Typography component="p">{game?.description}</Typography>
-							{/* Rate game? */}
+		<Container maxWidth="lg">
+			<Paper elevation={7} component="main" className={classes.paper}>
+				<Card className={classes.card}>
+					<CardMedia
+						className={classes.cardMedia}
+						image={game?.coverArt}
+						title={game?.title}
+					/>
+					<Divider
+						orientation="vertical"
+						flexItem
+						className={classes.divider}
+					/>
+					<CardContent className={classes.cardContent}>
+						<Typography variant="h4" component="h2">
+							{game?.title}
+						</Typography>
+						<Typography gutterBottom variant="subtitle2" component="p">
+							Release Date: {game?.releaseDate}
+						</Typography>
 
-							<CardActions className={classes.cardActions}>
-								<Link
-									component={RouterLink}
-									color="primary"
-									underline="hover"
-									className={classes.backLink}
-									to="/games"
-								>
-									<ArrowBackIcon /> Go back to library
-								</Link>
-							</CardActions>
-						</CardContent>
-					</Card>
-				</Paper>
-			</Container>
-		</div>
+						<Typography component="p">{game?.description}</Typography>
+						{/* Rate game? */}
+
+						<CardActions className={classes.cardActions}>
+							<Link
+								component={RouterLink}
+								color="primary"
+								underline="hover"
+								className={classes.backLink}
+								to="/games"
+							>
+								<ArrowBackIcon /> Go back to library
+							</Link>
+						</CardActions>
+					</CardContent>
+				</Card>
+			</Paper>
+		</Container>
 	);
 };
 
