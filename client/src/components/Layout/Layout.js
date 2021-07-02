@@ -121,6 +121,10 @@ const Layout = ({ Content }) => {
 		alert(res.data);
 	};
 
+	useEffect(() => {
+		document.title = "Library | Game Manager";
+	}, []);
+
 	// Watch for changes to the viewport
 	useEffect(() => {
 		window.addEventListener("resize", handleWidthChange);
@@ -240,7 +244,6 @@ const Layout = ({ Content }) => {
 						/>
 						{/* Description */}
 						<TextField
-							autoFocus
 							margin="dense"
 							name="description"
 							id="description"

@@ -28,7 +28,7 @@ const Game = ({ game }) => {
 					<Card className={classes.card}>
 						<CardMedia
 							className={classes.cardMedia}
-							image={coverArt ? coverArt : "https://source.unsplash.com/random"}
+							image={coverArt}
 							title={title}
 						/>
 					</Card>

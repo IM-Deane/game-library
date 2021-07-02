@@ -4,7 +4,7 @@ TODO: Add project image
 
 TODO: Add link to a live demo
 
-**Current Version:** 0.1.7
+**Current Version:** 0.1.8
 
 ## Expanded Version Description:
 
@@ -74,6 +74,29 @@ Thanks Postman.
 - Express.js
 
 ## Version History:
+
+**Version 0.1.8:**
+
+_Major:_ Implemented the update and delete game functions for the game
+management screen.
+
+With the addition of these features, the game manager now possesses core CRUD
+functionality.
+
+The next few updates will focus on the styling of the application.
+
+After this is complete, I will be comfortable launching the app.
+
+Once the application is live, I will think about adding additional features such
+as a search function and perhaps a simple rating system.
+
+_Minor:_
+
+Modified the styling of the game card details page. It now renders game cover
+art properly.
+
+I've also added a floating edit button for the card. Users must click this
+button if they would like to update/delete the game.
 
 **Version 0.1.7:**
 

@@ -121,8 +121,6 @@ export const getGame = async (req, res) => {
 	try {
 		const game = await Games.findById(id);
 
-		// const game = games.find((game) => game.id === id);
-
 		res.status(203).send(game);
 	} catch (error) {
 		console.log(error);
@@ -157,7 +155,6 @@ export const updateGame = async (req, res) => {
 		// Handle 404
 		if (!mongoose.Types.ObjectId.isValid(id))
 			return res.status(404).send("No games with that id!");
-
 		// Find game and update the specified fields
 		const updatedGame = await Games.findByIdAndUpdate(
 			id,
@@ -166,10 +163,10 @@ export const updateGame = async (req, res) => {
 		);
 
 		// const updatedGame = games.find((game) => game.id === id);
-
 		res.status(200).json(updatedGame);
 	} catch (error) {
 		console.log(error);
+		res.status(500).json({ message: error });
 	}
 };
 
@@ -190,5 +187,6 @@ export const deleteGame = async (req, res) => {
 			.json({ message: "Game has been deleted from the library." });
 	} catch (error) {
 		console.log(error);
+		res.json({ message: error });
 	}
 };
