@@ -4,7 +4,7 @@ TODO: Add project image
 
 TODO: Add link to a live demo
 
-**Current Version:** 0.1.6
+**Current Version:** 0.1.7
 
 ## Expanded Version Description:
 
@@ -74,6 +74,14 @@ Thanks Postman.
 - Express.js
 
 ## Version History:
+
+**Version 0.1.7:**
+
+Fixed an issues with the id of the games. The games weren't being fetched from
+the database because the wrong id was being supplied.
+
+I've removed the id attribute from the database schema and updated the logic to
+pass the proper id value (\_id) instead.
 
 **Version 0.1.6:**
 

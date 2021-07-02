@@ -137,7 +137,6 @@ export const addGame = async (req, res) => {
 	const newGame = new Games({
 		...game,
 		createdAt: new Date().toISOString(),
-		_id: uuidv4(),
 	});
 
 	try {
