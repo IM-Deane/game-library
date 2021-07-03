@@ -19,7 +19,7 @@ const Game = ({ game }) => {
 
 	return (
 		<>
-			<Grid item xs={12} sm={6} md={4} xl={6}>
+			<Grid item xs={12} sm={4} md={4} lg={2}>
 				<Link
 					component={RouterLink}
 					to={`/games/${_id}`}

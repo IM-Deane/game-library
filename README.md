@@ -4,7 +4,7 @@ TODO: Add project image
 
 TODO: Add link to a live demo
 
-**Current Version:** 0.1.10
+**Current Version:** 0.1.11
 
 ## Expanded Version Description:
 
@@ -74,6 +74,15 @@ Thanks Postman.
 - Express.js
 
 ## Version History:
+
+**Version 0.1.11:**
+
+Updated the layout breakpoints of the library. I've also reduced the size of the
+game cards to about 180px by 250px. This has allowed full cover art to be
+displayed and enabled more cards per row.
+
+For the overall design of the site, i've decided to base it off of the Steam
+game library page.
 
 **Version 0.1.10:**
 

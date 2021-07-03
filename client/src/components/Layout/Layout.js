@@ -193,7 +193,7 @@ const Layout = ({ Content }) => {
 	useEffect(() => {
 		window.addEventListener("resize", handleWidthChange);
 		// Toggle viewport on smaller screens
-		if (width <= 700) {
+		if (width <= 768) {
 			handleDrawerClose();
 		} else {
 			handleDrawerOpen();
@@ -277,13 +277,9 @@ const Layout = ({ Content }) => {
 			{/* Content of page */}
 			<main className={classes.content}>
 				<div className={classes.appBarSpacer} />
-				<Container maxWidth="lg" className={classes.container}>
+				<Container maxWidth="xl" className={classes.container}>
 					{/* Render the passed component */}
-					<Grid container spacing={4}>
-						<Grid item sm={12}>
-							<Library />
-						</Grid>
-					</Grid>
+					<Library />
 				</Container>
 			</main>
 			{/* *********** GAME UPLOAD FORM ************ */}
