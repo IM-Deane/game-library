@@ -2,6 +2,11 @@ import axios from "axios";
 
 const API = axios.create({ baseURL: "http://localhost:5000" });
 
+// ***** AUTH *****
+export const signin = (attempt) => API.post("/", attempt);
+
+// ***** GAMES *****
+
 // Get games
 export const getAllGames = () => API.get("/games");
 

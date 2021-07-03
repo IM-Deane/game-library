@@ -4,7 +4,7 @@ TODO: Add project image
 
 TODO: Add link to a live demo
 
-**Current Version:** 0.1.8
+**Current Version:** 0.1.9
 
 ## Expanded Version Description:
 
@@ -74,6 +74,17 @@ Thanks Postman.
 - Express.js
 
 ## Version History:
+
+**Version 0.1.9:**
+
+Implemented a basic signin feature.
+
+Currently, the user must enter the correct username and password.
+
+The credentials are stored in env variables.
+
+If they're stuck, I've included the correct credentials as a hint tha's
+displayed once they click the "Forgot your Password?" link.
 
 **Version 0.1.8:**
 

@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useHistory, Link } from "react-router-dom";
 
+import { signin } from "../../api/index";
+
 import {
 	Grid,
 	Paper,
@@ -16,9 +18,32 @@ import { useStyles } from "./styles";
 
 const Home = () => {
 	const classes = useStyles();
+	const [signIn, setSignIn] = useState({
+		username: "",
+		password: "",
+	});
 	const [showHint, setShowHint] = useState(false);
 
 	const history = useHistory();
+
+	// Handle sign in
+	const handleFormChange = (e) => {
+		setSignIn({ ...signIn, [e.target.name]: e.target.value });
+	};
+
+	const handleSubmit = async (e) => {
+		e.preventDefault();
+
+		const { data } = await signin(signIn);
+
+		if (!data.token)
+			return alert("Sorry, your username or password is incorrect.");
+
+		const token = data.token;
+
+		localStorage.setItem("token", token);
+		history.push("/games");
+	};
 
 	useEffect(() => {
 		document.title = "Sign In | Game Manager";
@@ -35,17 +60,19 @@ const Home = () => {
 					<Typography component="h1" variant="h5">
 						Sign in
 					</Typography>
-					<form className={classes.form} noValidate>
+					<form className={classes.form} noValidate onSubmit={handleSubmit}>
 						<TextField
 							variant="outlined"
 							margin="normal"
 							required
 							fullWidth
-							id="email"
-							label="Email Address"
-							name="email"
-							autoComplete="email"
+							id="username"
+							label="Username"
+							name="username"
+							autoComplete="username"
+							type="text"
 							autoFocus
+							onChange={handleFormChange}
 						/>
 						<TextField
 							variant="outlined"
@@ -57,17 +84,14 @@ const Home = () => {
 							type="password"
 							id="password"
 							autoComplete="current-password"
+							onChange={handleFormChange}
 						/>
-						{/* <FormControlLabel
-							control={<Checkbox value="remember" color="primary" />}
-							label="Remember me"
-						/> */}
 						<Button
+							type="submit"
 							fullWidth
 							variant="contained"
 							color="primary"
 							className={classes.submit}
-							onClick={() => history.push("/games")}
 						>
 							Sign In
 						</Button>
@@ -78,10 +102,12 @@ const Home = () => {
 									variant="body2"
 									onClick={() => setShowHint(!showHint)}
 								>
-									{showHint
-										? "Pssst... you can just click the button to login!"
-										: "Forgot your password?"}
+									{"Forgot your password?"}
 								</Link>
+								<div style={{ display: `${showHint ? "block" : "none"}` }}>
+									<p>Username: GamerGuy16</p>
+									<p>Password: gameManager123</p>
+								</div>
 							</Grid>
 						</Grid>
 					</form>
