@@ -4,7 +4,7 @@ TODO: Add project image
 
 TODO: Add link to a live demo
 
-**Current Version:** 0.1.9
+**Current Version:** 0.1.10
 
 ## Expanded Version Description:
 
@@ -74,6 +74,25 @@ Thanks Postman.
 - Express.js
 
 ## Version History:
+
+**Version 0.1.10:**
+
+Updated the styling of the confirmation alerts. They are now consistent across
+the site.
+
+I've also added confirmation visuals that are triggered when the user performs a
+CRUD action.
+
+For new games, the page is refreshed to simulate the app getting the new data
+from the database.
+
+For game deletions, the user is redirected back to the library upon the game's
+successful removal.
+
+For updates to the game's data, I've made a new fetch request to the database
+once the user clicks the alert's close button.
+
+These visual features should provide the user with a better experience.
 
 **Version 0.1.9:**
 

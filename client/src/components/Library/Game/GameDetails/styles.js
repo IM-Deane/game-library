@@ -41,15 +41,15 @@ export const useStyles = makeStyles((theme) => ({
 	cardContent: {
 		width: "100%",
 		padding: "24px",
-		position: "relative",
 	},
 	edit: {
 		position: "absolute",
-		top: "20px",
+		bottom: "0",
 		right: "8px",
 	},
 	cardActions: {
 		paddingTop: "20px",
+		position: "relative",
 	},
 	divider: {
 		backgroundColor: "white",

@@ -28,6 +28,8 @@ import {
 	Button,
 } from "@material-ui/core";
 
+import { Alert, AlertTitle } from "@material-ui/lab";
+
 // Icons
 import MenuIcon from "@material-ui/icons/Menu";
 import SportsEsportsIcon from "@material-ui/icons/SportsEsports";
@@ -58,6 +60,8 @@ const Layout = ({ Content }) => {
 	// Handle user logout
 	const logout = () => {
 		history.push("/");
+		// Remove token from storage
+		localStorage.clear();
 	};
 
 	// Handle Navbar
@@ -117,8 +121,68 @@ const Layout = ({ Content }) => {
 		});
 
 		// Close Dialog box
+		setAlertStatus(res.status);
+		toggleConfirmationDialog();
 		toggleUploadForm();
-		alert(res.data);
+	};
+
+	// Handle form confirmation
+	const [alertStatus, setAlertStatus] = useState(200);
+	const [confirmation, setConfirmation] = useState(false);
+	const toggleConfirmationDialog = () => setConfirmation(!confirmation);
+
+	// Reload page after successful game upload
+	const confirmationClose = () => {
+		toggleConfirmationDialog();
+		window.location.reload();
+	};
+
+	// Display a confirmation alert after user submits form
+	const confirmationAlert = (status) => {
+		switch (status) {
+			case 201:
+				return (
+					<Alert
+						className={classes.alert}
+						severity="success"
+						variant="filled"
+						onClose={() => confirmationClose()}
+					>
+						<AlertTitle>Success</AlertTitle>
+						Game has been uploaded!
+					</Alert>
+				);
+			// Handle errors
+			case 500:
+			case 403:
+			case 404:
+			case 405:
+			case 409:
+			case 410:
+				return (
+					<Alert
+						className={classes.alert}
+						severity="error"
+						variant="filled"
+						onClose={() => toggleConfirmationDialog()}
+					>
+						<AlertTitle>Error</AlertTitle>
+						Something went wrong! Please check your inputs and try again.
+					</Alert>
+				);
+			default:
+				return (
+					<Alert
+						className={classes.alert}
+						severity="success"
+						variant="filled"
+						onClose={() => confirmationClose()}
+					>
+						<AlertTitle>Success</AlertTitle>
+						Game has been uploaded!
+					</Alert>
+				);
+		}
 	};
 
 	useEffect(() => {
@@ -298,7 +362,7 @@ const Layout = ({ Content }) => {
 						Cancel
 					</Button>
 					<Button
-						onClick={(e) => handleNewGame(e)}
+						onClick={handleNewGame}
 						color="primary"
 						variant="contained"
 						startIcon={<CloudUploadIcon />}
@@ -306,6 +370,12 @@ const Layout = ({ Content }) => {
 						Save Game
 					</Button>
 				</DialogActions>
+			</Dialog>
+			{/* Form Confirmation dialog */}
+			<Dialog open={confirmation} aria-describedby="alert-dialog-description">
+				<DialogContent style={{ padding: "0" }}>
+					{confirmation && confirmationAlert(alertStatus)}
+				</DialogContent>
 			</Dialog>
 		</div>
 	);
