@@ -26,6 +26,8 @@ import {
 	DialogActions,
 	TextField,
 	Button,
+	Menu,
+	MenuItem,
 } from "@material-ui/core";
 
 import { Alert, AlertTitle } from "@material-ui/lab";
@@ -52,6 +54,16 @@ const Layout = ({ Content }) => {
 		coverArt: "",
 		releaseDate: "",
 	});
+
+	// Handle account menu functionality
+	const [accountMenu, setAccountMenu] = useState(null);
+	const openAccountMenu = (e) => {
+		setAccountMenu(e.currentTarget);
+	};
+
+	const closeAccountMenu = () => {
+		setAccountMenu(null);
+	};
 
 	// Handle game upload menu
 	const [uploadForm, setUploadForm] = useState(false);
@@ -225,11 +237,28 @@ const Layout = ({ Content }) => {
 					<Typography variant="h6" component="h1" className={classes.title}>
 						Game Library
 					</Typography>
-
-					<IconButton color="inherit" onClick={() => logout()}>
-						<ExitToAppIcon />
-						<Typography variant="body2">Sign Out</Typography>
-					</IconButton>
+					<Button
+						variant="contained"
+						onClick={openAccountMenu}
+						color="secondary"
+						className={classes.button}
+						startIcon={<SportsEsportsIcon />}
+					>
+						My Account
+					</Button>
+					{/* **** USER ACCOUNT ***** */}
+					<Menu
+						id="simple-menu"
+						anchorEl={accountMenu}
+						keepMounted
+						open={Boolean(accountMenu)}
+						onClose={closeAccountMenu}
+					>
+						<MenuItem onClick={closeAccountMenu}>Profile</MenuItem>
+						<MenuItem onClick={logout}>
+							Logout <ExitToAppIcon />
+						</MenuItem>
+					</Menu>
 				</Toolbar>
 			</AppBar>
 			{/* Sidenav */}
