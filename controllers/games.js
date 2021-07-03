@@ -1,4 +1,3 @@
-import { v4 as uuidv4 } from "uuid";
 import mongoose from "mongoose";
 import Games from "../models/games.js";
 
@@ -6,7 +5,7 @@ import Games from "../models/games.js";
 export const getAllGames = async (req, res) => {
 	try {
 		// Fetch games & sort by most recently added
-		games = await Games.find().sort("-1");
+		const games = await Games.find().sort("-1");
 		res.status(200).send(games);
 	} catch (error) {
 		console.log(error);
