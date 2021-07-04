@@ -4,7 +4,7 @@ TODO: Add project image
 
 TODO: Add link to a live demo
 
-**Current Version:** 0.1.11
+**Current Version:** 0.1.12
 
 ## Expanded Version Description:
 
@@ -74,6 +74,14 @@ Thanks Postman.
 - Express.js
 
 ## Version History:
+
+**Version 0.1.12:**
+
+Added two main lists to the libary page: Recently Added and All Games.
+
+Implemented collapsible containers for each of the lists.
+
+They now allow a user to quickly hide the lists that they're not interested in.
 
 **Version 0.1.11:**
 

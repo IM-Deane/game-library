@@ -69,6 +69,7 @@ const Home = () => {
 							id="username"
 							label="Username"
 							name="username"
+							defaultValue="GamerGuy16"
 							autoComplete="username"
 							type="text"
 							autoFocus
