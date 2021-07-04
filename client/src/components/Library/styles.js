@@ -38,7 +38,8 @@ export const useStyles = makeStyles((theme) => ({
 		background: "transparent",
 		color: "white",
 	},
-	listHeading: {
-		fontSize: "2rem",
+	heading: {
+		color: "white",
+		marginBottom: "30px",
 	},
 }));
