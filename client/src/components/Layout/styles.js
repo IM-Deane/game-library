@@ -45,6 +45,13 @@ export const useStyles = makeStyles((theme) => ({
 		flexGrow: 1,
 		color: theme.palette.text.dark,
 		fontSize: "1rem",
+		display: "flex",
+		alignItems: "center",
+	},
+	logo: {
+		width: "45px",
+		height: "auto",
+		marginRight: "10px",
 	},
 	drawerPaper: {
 		backgroundColor: theme.palette.background.light,

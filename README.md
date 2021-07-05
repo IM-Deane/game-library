@@ -13,8 +13,8 @@ computer or larger device (widths > 650px are ideal).
 
 ## Expanded Version Description:
 
-This project began as a simple backend Express.js application. My goal was simply to
-practice building a RESTful API.
+This project began as a simple backend Express.js application. My goal was
+simply to practice building a RESTful API.
 
 However, after completing the API I've decided to make the app more interesting.
 The next version will feature a client side interface that allows users to
@@ -79,6 +79,10 @@ Thanks Postman.
 - Express.js
 
 ## Version History:
+
+**Version 0.1.15:**
+
+Removed the React icons and added a custom logo and favicons.
 
 **Version 0.1.14:**
 

@@ -6,7 +6,6 @@ import { addGame, getAllGames } from "../../api/index";
 // Classname utility for creating conditional classes
 import clsx from "clsx";
 import Container from "@material-ui/core/Container";
-import Grid from "@material-ui/core/Grid";
 import AppBar from "@material-ui/core/AppBar";
 import Divider from "@material-ui/core/Divider";
 import Drawer from "@material-ui/core/Drawer";
@@ -17,7 +16,6 @@ import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
-import Avatar from "@material-ui/core/Avatar";
 import {
 	Dialog,
 	DialogTitle,
@@ -46,6 +44,8 @@ import SearchIcon from "@material-ui/icons/Search";
 import ClearIcon from "@material-ui/icons/Clear";
 
 import { useStyles } from "./styles";
+
+import Logo from "../../game-console-bg.svg";
 
 import Library from "../Library/Library";
 
@@ -269,7 +269,9 @@ const Layout = ({ Content }) => {
 					>
 						<MenuIcon />
 					</IconButton>
+					{/* Title & Logo */}
 					<Typography variant="h6" component="h1" className={classes.title}>
+						<img src={Logo} className={classes.logo} alt="Game Console logo" />
 						My Game Library
 					</Typography>
 					<Button
