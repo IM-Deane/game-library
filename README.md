@@ -6,6 +6,11 @@ TODO: Add link to a live demo
 
 **Current Version:** 0.1.13
 
+## Important Notice:
+
+Although I've made this application responsive, it is best used on a desktop
+computer or larger device (widths > 650px are ideal).
+
 ## Expanded Version Description:
 
 This project began as a simple backend express application. The goal was to

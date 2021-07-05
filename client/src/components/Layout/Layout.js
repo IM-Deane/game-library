@@ -64,7 +64,7 @@ const Layout = ({ Content }) => {
 
 	const [games, setGames] = useState([]);
 	const [searchList, setSearchList] = useState([]);
-	// const searchInput = useRef(null);
+	const searchInput = useRef(null);
 
 	// Handle account menu functionality
 	const [accountMenu, setAccountMenu] = useState(null);
@@ -336,19 +336,24 @@ const Layout = ({ Content }) => {
 							root: classes.inputRoot,
 							input: classes.inputInput,
 						}}
+						inputRef={searchInput}
+						defaultValue=""
 						id="searchInput"
 						inputProps={{ "aria-label": "search" }}
 						autoComplete="off"
 						onChange={searchGames}
 					/>
 					<div className={classes.clearIcon}>
-						{/* Resets the search field */}
-						<ClearIcon
-							onClick={() => {
-								document.getElementById("searchInput").value = "";
-								setSearchList(games);
-							}}
-						/>
+						{/* Display once user begins typing */}
+						{searchInput.current?.value !== "" && (
+							<ClearIcon
+								/* Resets the search field */
+								onClick={() => {
+									document.getElementById("searchInput").value = "";
+									setSearchList(games);
+								}}
+							/>
+						)}
 					</div>
 				</div>
 				{/* Games list */}
