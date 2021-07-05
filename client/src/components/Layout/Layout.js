@@ -28,6 +28,8 @@ import {
 	Button,
 	Menu,
 	MenuItem,
+	Link,
+	InputBase,
 } from "@material-ui/core";
 
 import { Alert, AlertTitle } from "@material-ui/lab";
@@ -39,6 +41,7 @@ import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import CloudUploadIcon from "@material-ui/icons/CloudUpload";
 import CancelIcon from "@material-ui/icons/Cancel";
+import SearchIcon from "@material-ui/icons/Search";
 
 import { useStyles } from "./styles";
 
@@ -261,7 +264,7 @@ const Layout = ({ Content }) => {
 					</Menu>
 				</Toolbar>
 			</AppBar>
-			{/* Sidenav */}
+			{/* ****** Sidenav ****** */}
 			<Drawer
 				variant="permanent"
 				classes={{
@@ -290,18 +293,20 @@ const Layout = ({ Content }) => {
 					</ListItem>
 				</List>
 				<Divider />
-				{/* Account/Settings */}
-				<List>
-					<ListItem button component={NavLink} to="/account">
-						<ListItemIcon>
-							{/* User avatar */}
-							<Avatar className={classes.avatar}>
-								<SportsEsportsIcon />{" "}
-							</Avatar>
-						</ListItemIcon>
-						<ListItemText primary="My Account" />
-					</ListItem>
-				</List>
+				{/* Search bar */}
+				<div className={classes.search}>
+					<div className={classes.searchIcon}>
+						<SearchIcon />
+					</div>
+					<InputBase
+						placeholder="Search by Name"
+						classes={{
+							root: classes.inputRoot,
+							input: classes.inputInput,
+						}}
+						inputProps={{ "aria-label": "search" }}
+					/>
+				</div>
 			</Drawer>
 			{/* Content of page */}
 			<main className={classes.content}>

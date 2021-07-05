@@ -41,7 +41,7 @@ const Library = () => {
 	return (
 		<div>
 			{/* Recently Added (limit 6) */}
-			<div style={{ marginTop: "60px", padding: "0 20px" }}>
+			<div style={{ marginTop: "60px", padding: "0 10px" }}>
 				<Typography className={classes.heading} component="h2">
 					RECENT GAMES
 				</Typography>
