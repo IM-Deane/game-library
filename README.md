@@ -13,7 +13,7 @@ computer or larger device (widths > 650px are ideal).
 
 ## Expanded Version Description:
 
-This project began as a simple backend express application. The goal was to
+This project began as a simple backend Express.js application. My goal was simply to
 practice building a RESTful API.
 
 However, after completing the API I've decided to make the app more interesting.
