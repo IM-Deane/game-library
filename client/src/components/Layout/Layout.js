@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
-import { Link as NavLink, useHistory } from "react-router-dom";
+import React, { useState, useEffect, useRef } from "react";
+import { Link as RouterLink, useHistory } from "react-router-dom";
 
-import { addGame } from "../../api/index";
+import { addGame, getAllGames } from "../../api/index";
 
 // Classname utility for creating conditional classes
 import clsx from "clsx";
@@ -30,6 +30,7 @@ import {
 	MenuItem,
 	Link,
 	InputBase,
+	CircularProgress,
 } from "@material-ui/core";
 
 import { Alert, AlertTitle } from "@material-ui/lab";
@@ -42,6 +43,7 @@ import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import CloudUploadIcon from "@material-ui/icons/CloudUpload";
 import CancelIcon from "@material-ui/icons/Cancel";
 import SearchIcon from "@material-ui/icons/Search";
+import ClearIcon from "@material-ui/icons/Clear";
 
 import { useStyles } from "./styles";
 
@@ -51,12 +53,18 @@ const Layout = ({ Content }) => {
 	const classes = useStyles();
 	const history = useHistory();
 
+	const [isLoading, setIsLoading] = useState(true);
+
 	const [newGame, setNewGame] = useState({
 		title: "",
 		description: "",
 		coverArt: "",
 		releaseDate: "",
 	});
+
+	const [games, setGames] = useState([]);
+	const [searchList, setSearchList] = useState([]);
+	// const searchInput = useRef(null);
 
 	// Handle account menu functionality
 	const [accountMenu, setAccountMenu] = useState(null);
@@ -200,8 +208,32 @@ const Layout = ({ Content }) => {
 		}
 	};
 
+	// Fetch and set games
+	const handleGames = async () => {
+		const { data } = await getAllGames();
+
+		await setGames(data);
+		await setSearchList(data);
+		await setIsLoading(false);
+	};
+
+	//
+	const searchGames = (e) => {
+		// If query field is empty, reset search
+		if (!e.target.value) return setSearchList(games);
+
+		const query = e.target.value.toUpperCase();
+
+		// Search for the specified game (case insensitive)
+		setSearchList(
+			games.filter((game) => game.title.toUpperCase().includes(query))
+		);
+	};
+
+	// Fetch games on initial load
 	useEffect(() => {
 		document.title = "Library | Game Manager";
+		handleGames();
 	}, []);
 
 	// Watch for changes to the viewport
@@ -304,16 +336,45 @@ const Layout = ({ Content }) => {
 							root: classes.inputRoot,
 							input: classes.inputInput,
 						}}
+						id="searchInput"
 						inputProps={{ "aria-label": "search" }}
+						autoComplete="off"
+						onChange={searchGames}
 					/>
+					<div className={classes.clearIcon}>
+						{/* Resets the search field */}
+						<ClearIcon
+							onClick={() => {
+								document.getElementById("searchInput").value = "";
+								setSearchList(games);
+							}}
+						/>
+					</div>
 				</div>
+				{/* Games list */}
+				<List style={{ padding: " 10px" }}>
+					<Typography>Games ({searchList?.length})</Typography>
+					{searchList?.length > 0 ? (
+						searchList?.map((game, index) => (
+							<ListItem key={index}>
+								<Link component={RouterLink} to={`/games/${game._id}`}>
+									{game.title}
+								</Link>
+							</ListItem>
+						))
+					) : (
+						<ListItem>
+							<ListItemText>No Games Found</ListItemText>
+						</ListItem>
+					)}
+				</List>
 			</Drawer>
 			{/* Content of page */}
 			<main className={classes.content}>
 				<div className={classes.appBarSpacer} />
 				<Container maxWidth="xl" className={classes.container}>
 					{/* Render the passed component */}
-					<Library />
+					{isLoading ? <CircularProgress /> : <Library games={games} />}
 				</Container>
 			</main>
 			{/* *********** GAME UPLOAD FORM ************ */}

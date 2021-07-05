@@ -9,18 +9,7 @@ export const getAllGames = async (req, res) => {
 		res.status(200).send(games);
 	} catch (error) {
 		console.log(error);
-		res.status(404).json({ message: error });
-	}
-};
-
-export const getRecentlyAddedGames = async (req, res) => {
-	try {
-		// Fetch games & sort by most recently added
-		const games = await Games.find().sort({ _id: -1 }).limit(6);
-		res.status(200).send(games);
-	} catch (error) {
-		console.log(error);
-		res.status(404).json({ message: error });
+		res.json({ message: error });
 	}
 };
 

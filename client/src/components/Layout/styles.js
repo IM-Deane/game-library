@@ -142,4 +142,19 @@ export const useStyles = makeStyles((theme) => ({
 			},
 		},
 	},
+	clearIcon: {
+		color: "grey",
+		padding: theme.spacing(0, 2),
+		height: "100%",
+		position: "absolute",
+		right: 0,
+		top: 0,
+		display: "flex",
+		alignItems: "center",
+		justifyContent: "center",
+		"&:hover": {
+			color: "black",
+			cursor: "pointer",
+		},
+	},
 }));

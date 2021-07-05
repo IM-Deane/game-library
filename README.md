@@ -4,7 +4,7 @@ TODO: Add project image
 
 TODO: Add link to a live demo
 
-**Current Version:** 0.1.12
+**Current Version:** 0.1.13
 
 ## Expanded Version Description:
 
@@ -74,6 +74,18 @@ Thanks Postman.
 - Express.js
 
 ## Version History:
+
+**Version 0.1.13:**
+
+Implemented a search function that allows the user to search for specifics game
+in the library.
+
+This search results are rendered as list of links inside of the sidebar
+navigation menu. Users can enter a query and the list will filter itself in
+realtime (ie. as the user is typing).
+
+After the user has found the game, they can click on the link and it will
+navigate to the specified game details page.
 
 **Version 0.1.12:**
 
