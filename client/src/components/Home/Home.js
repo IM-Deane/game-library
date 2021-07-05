@@ -19,7 +19,7 @@ import { useStyles } from "./styles";
 const Home = () => {
 	const classes = useStyles();
 	const [signIn, setSignIn] = useState({
-		username: "",
+		username: "GamerGuy16",
 		password: "",
 	});
 	const [showHint, setShowHint] = useState(false);
