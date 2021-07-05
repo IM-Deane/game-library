@@ -1,6 +1,6 @@
 # Project: Game Library Manager
 
-TODO: Add project image
+![Project-Image](https://github.com/IM-Deane/images/blob/main/assets/images/game-manager-main.jpg)
 
 TODO: Add link to a live demo
 
