@@ -279,7 +279,7 @@ const Layout = ({ Content }) => {
 						className={classes.button}
 						startIcon={<SportsEsportsIcon />}
 					>
-						My Account
+						{width >= 370 && "My Account"}
 					</Button>
 					{/* **** USER ACCOUNT ***** */}
 					<Menu
@@ -337,7 +337,6 @@ const Layout = ({ Content }) => {
 							input: classes.inputInput,
 						}}
 						inputRef={searchInput}
-						defaultValue=""
 						id="searchInput"
 						inputProps={{ "aria-label": "search" }}
 						autoComplete="off"
