@@ -4,9 +4,12 @@ export const useStyles = makeStyles((theme) => ({
 	root: {
 		backgroundImage: `url("${backgroundImg}")`,
 		minHeight: "100%",
-		height: "1000px",
+		height: "800px",
 		width: "100%",
 		padding: "40px",
+		[theme.breakpoints.down("sm")]: {
+			height: "1000px",
+		},
 	},
 	paper: {
 		backgroundColor: "transparent",
