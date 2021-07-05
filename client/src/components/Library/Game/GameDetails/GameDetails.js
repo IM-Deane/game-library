@@ -221,14 +221,14 @@ const GameDetails = () => {
 							image={game?.coverArt}
 							title={game?.title}
 						/>
-						<Divider className={classes.divider} />
 						<CardContent className={classes.cardContent}>
-							<Typography variant="h4" component="h2">
+							<Typography variant="h4" gutterBottom component="h2">
 								{game?.title}
 							</Typography>
-							<Typography gutterBottom variant="subtitle1" component="p">
+							<Typography gutterBottom variant="subtitle2" component="p">
 								Release Date: {game?.releaseDate}
 							</Typography>
+							<Divider variant="middle" className={classes.divider} />
 							<Typography component="p">{game?.description}</Typography>
 							{/* Rate game? */}
 							<CardActions className={classes.cardActions}>

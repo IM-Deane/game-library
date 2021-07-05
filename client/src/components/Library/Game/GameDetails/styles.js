@@ -6,13 +6,17 @@ export const useStyles = makeStyles((theme) => ({
 		minHeight: "100%",
 		height: "1000px",
 		width: "100%",
-		padding: "30px",
+		padding: "40px",
 	},
 	paper: {
-		backgroundColor: theme.palette.background.dark,
-		width: "310px",
-		height: "600px",
-		margin: "0 auto",
+		backgroundColor: "transparent",
+		width: "650px",
+		height: "450px",
+		margin: "30px auto 0",
+		[theme.breakpoints.down("sm")]: {
+			width: "350px",
+			height: "700px",
+		},
 	},
 	title: {
 		color: theme.palette.text.light,
@@ -24,23 +28,41 @@ export const useStyles = makeStyles((theme) => ({
 	},
 	card: {
 		width: "100%",
-		height: "800px",
+		height: "100%",
 		display: "flex",
-		flexDirection: "column",
+		alignItems: "center",
+		justifyContent: "center",
 		color: theme.palette.text.light,
-		backgroundColor: theme.palette.background.dark,
+		background: "transparent",
+		[theme.breakpoints.down("sm")]: {
+			flexDirection: "column",
+			alignItems: "initial",
+			justifyContent: "initial",
+		},
 	},
 
 	cardMedia: {
-		minWidth: "100%",
-		height: "100%",
+		minWidth: "50%",
+		minHeight: "100%",
 		backgroundSize: "cover",
 		backgroundPosition: "center",
 		backgroundRepeat: "no-repeat",
+		[theme.breakpoints.down("sm")]: {
+			minWidth: "100%",
+			minHeight: "45%",
+		},
 	},
 	cardContent: {
-		width: "100%",
+		flexGrow: 1,
+		minWidth: "50%",
+		minHeight: "100%",
 		padding: "24px",
+		backgroundColor: theme.palette.background.dark,
+		[theme.breakpoints.down("sm")]: {
+			minWidth: "100%",
+			minHeight: "55%",
+			overflowY: "scroll",
+		},
 	},
 	edit: {
 		position: "absolute",
@@ -53,7 +75,7 @@ export const useStyles = makeStyles((theme) => ({
 	},
 	divider: {
 		backgroundColor: "white",
-		marginTop: "1px",
+		margin: "20px 0",
 	},
 	alert: {
 		width: "100%",

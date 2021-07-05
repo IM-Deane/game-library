@@ -4,7 +4,7 @@ TODO: Add project image
 
 TODO: Add link to a live demo
 
-**Current Version:** 0.1.13
+**Current Version:** 0.1.14
 
 ## Important Notice:
 
@@ -79,6 +79,16 @@ Thanks Postman.
 - Express.js
 
 ## Version History:
+
+**Version 0.1.14:**
+
+Modified the content of the card details page. The card has been converted from
+a vertical orientation to a horizontal one.
+
+This change makes the content look better on desktops/tablets.
+
+I also added a breakpoint that will convert the card back to vertical
+orientation on smaller screens.
 
 **Version 0.1.13:**
 

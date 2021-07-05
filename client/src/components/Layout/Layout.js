@@ -270,7 +270,7 @@ const Layout = ({ Content }) => {
 						<MenuIcon />
 					</IconButton>
 					<Typography variant="h6" component="h1" className={classes.title}>
-						Game Library
+						My Game Library
 					</Typography>
 					<Button
 						variant="contained"
