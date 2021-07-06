@@ -85,13 +85,13 @@ server.
 
 Thanks Postman.
 
-~~### Development Stack:
+~~### Development Stack:~~
 
 - HTML5
 - CSS3
 - Javascript
 - Node.js
-- Express.js~~
+- Express.js
 
 ## Version History:
 
