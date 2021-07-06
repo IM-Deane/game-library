@@ -275,7 +275,7 @@ const Layout = ({ Content }) => {
 						open={Boolean(accountMenu)}
 						onClose={closeAccountMenu}
 					>
-						<MenuItem onClick={closeAccountMenu}>Profile</MenuItem>
+						{/* <MenuItem onClick={closeAccountMenu}>Profile</MenuItem> */}
 						<MenuItem onClick={logout}>
 							Logout <ExitToAppIcon />
 						</MenuItem>
