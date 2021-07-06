@@ -1,6 +1,10 @@
 import axios from "axios";
 
+// Production
 const API = axios.create({ baseURL: "http://localhost:5000" });
+
+// Development
+// const API = axios.create({ baseURL: "http://localhost:5000" });
 
 // ***** AUTH *****
 export const signin = (attempt) => API.post("/", attempt);
