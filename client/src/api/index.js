@@ -1,7 +1,9 @@
 import axios from "axios";
 
 // Production
-const API = axios.create({ baseURL: "http://localhost:5000" });
+const API = axios.create({
+	baseURL: "https://mern-game-library-manager.herokuapp.com/",
+});
 
 // Development
 // const API = axios.create({ baseURL: "http://localhost:5000" });

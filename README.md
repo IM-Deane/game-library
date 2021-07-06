@@ -2,7 +2,7 @@
 
 ![Project-Image](https://github.com/IM-Deane/images/blob/main/assets/images/game-manager-main.jpg)
 
-TODO: Add link to a live demo
+[Live Site](https://mern-game-library-manager.netlify.app/)
 
 **Current Version:** 1.0.0
 
