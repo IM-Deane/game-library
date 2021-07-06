@@ -4,7 +4,7 @@
 
 TODO: Add link to a live demo
 
-**Current Version:** 0.1.17
+**Current Version:** 0.1.18
 
 ## Important Notice:
 
@@ -79,6 +79,13 @@ Thanks Postman.
 - Express.js
 
 ## Version History:
+
+**Version 0.1.18:**
+
+Finished refactoring the confirmation alert dialog box into its own component.
+
+This feature now accepts several props which will trigger the dialog after
+various game form actions.
 
 **Version 0.1.17:**
 
