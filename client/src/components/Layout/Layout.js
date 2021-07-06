@@ -112,9 +112,7 @@ const Layout = () => {
 
 	const handleNewGame = async (e) => {
 		e.preventDefault();
-
 		const res = await addGame(newGame);
-
 		// Clear input fields
 		setNewGame({
 			title: "",
@@ -122,7 +120,6 @@ const Layout = () => {
 			coverArt: "",
 			releaseDate: "",
 		});
-
 		// Close Dialog box
 		setAlertStatus(res.status);
 		toggleConfirmationDialog();
