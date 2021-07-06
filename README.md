@@ -4,7 +4,7 @@
 
 TODO: Add link to a live demo
 
-**Current Version:** 0.1.16
+**Current Version:** 0.1.17
 
 ## Important Notice:
 
@@ -79,6 +79,16 @@ Thanks Postman.
 - Express.js
 
 ## Version History:
+
+**Version 0.1.17:**
+
+Refactored the game upload/manage forms and form confirmation dialogs into
+resuable components.
+
+Converting these features into custom components has reduced the overall amount
+of code and made their parent components easier to manage.
+
+The power of the DRY principle strikes again.
 
 **Version 0.1.16:**
 

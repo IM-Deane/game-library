@@ -17,12 +17,6 @@ import ListItemText from "@material-ui/core/ListItemText";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import {
-	Dialog,
-	DialogTitle,
-	DialogContent,
-	DialogContentText,
-	DialogActions,
-	TextField,
 	Button,
 	Menu,
 	MenuItem,
@@ -33,13 +27,17 @@ import {
 
 import { Alert, AlertTitle } from "@material-ui/lab";
 
+// Custom form components
+import GameForm from "../GameForm";
+import FormAlert from "../FormAlert";
+import { convertToBase64 } from "../FileToBase64";
+
 // Icons
 import MenuIcon from "@material-ui/icons/Menu";
 import SportsEsportsIcon from "@material-ui/icons/SportsEsports";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import CloudUploadIcon from "@material-ui/icons/CloudUpload";
-import CancelIcon from "@material-ui/icons/Cancel";
 import SearchIcon from "@material-ui/icons/Search";
 import ClearIcon from "@material-ui/icons/Clear";
 
@@ -116,24 +114,10 @@ const Layout = ({ Content }) => {
 		setNewGame({ ...newGame, [e.target.name]: e.target.value });
 	};
 
-	const convertToBase64 = (file) => {
-		return new Promise((resolve, reject) => {
-			const fileReader = new FileReader();
-			fileReader.readAsDataURL(file);
-			fileReader.onload = () => {
-				resolve(fileReader.result);
-			};
-			fileReader.onerror = (error) => {
-				reject(error);
-			};
-		});
-	};
-
 	const handleNewGame = async (e) => {
 		e.preventDefault();
 
 		const res = await addGame(newGame);
-		console.log(res.status);
 
 		// Clear input fields
 		setNewGame({
@@ -384,96 +368,19 @@ const Layout = ({ Content }) => {
 				</Container>
 			</main>
 			{/* *********** GAME UPLOAD FORM ************ */}
-			<Dialog open={uploadForm} aria-labelledby="form-dialog-title">
-				<DialogTitle id="form-dialog-title">Add New Game:</DialogTitle>
-				<DialogContent>
-					<DialogContentText>
-						Use the inputs below to add a new game to the library.
-					</DialogContentText>
-					<form>
-						{/* Title */}
-						<TextField
-							autoFocus
-							margin="dense"
-							name="title"
-							id="title"
-							label="Game Title"
-							type="text"
-							onChange={handleFormChange}
-							fullWidth
-							required
-						/>
-						{/* Description */}
-						<TextField
-							margin="dense"
-							name="description"
-							id="description"
-							label="Description"
-							type="text"
-							onChange={handleFormChange}
-							fullWidth
-							required
-						/>
-						{/* Release Date */}
-						<TextField
-							margin="dense"
-							name="releaseDate"
-							id="releaseDate"
-							label="Release Date"
-							type="text"
-							onChange={handleFormChange}
-							helperText="Format: June 30, 2021"
-							fullWidth
-							required
-						/>
-						{/* Cover Art */}
-						<input
-							accept="image/*"
-							name="coverArt"
-							id="coverArt"
-							onChange={handleFormChange}
-							type="file"
-							required
-							style={{ display: "none" }}
-						/>
-						<label htmlFor="coverArt">
-							<Button
-								style={{ marginTop: "20px" }}
-								variant="contained"
-								color="secondary"
-								component="span"
-								startIcon={<CloudUploadIcon />}
-							>
-								Upload Cover Art
-							</Button>
-						</label>
-					</form>
-				</DialogContent>
-				<DialogActions>
-					<Button
-						onClick={toggleUploadForm}
-						color="primary"
-						variant="outlined"
-						startIcon={<CancelIcon />}
-					>
-						Cancel
-					</Button>
-					<Button
-						onClick={handleNewGame}
-						color="primary"
-						variant="contained"
-						startIcon={<CloudUploadIcon />}
-					>
-						Save Game
-					</Button>
-				</DialogActions>
-			</Dialog>
-			{/* Form Confirmation dialog */}
-			<Dialog open={confirmation} aria-describedby="alert-dialog-description">
-				<DialogContent style={{ padding: "0" }}>
-					{confirmation && confirmationAlert(alertStatus)}
-				</DialogContent>
-			</Dialog>
+			<GameForm
+				isNewGame={true}
+				isFormOpen={uploadForm}
+				toggleForm={toggleUploadForm}
+				handleFormChange={handleFormChange}
+				handleGame={handleNewGame}
+			/>
+			{/* Form Confirmation dialog box*/}
+			<FormAlert
+				confirmation={confirmation}
+				confirmationAlert={confirmationAlert}
+				alertStatus={alertStatus}
+			/>
 		</div>
 	);
 };
