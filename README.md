@@ -62,12 +62,12 @@ development stack.
 
 ## Previous Version:
 
-~~The goal of this project is to practice building a RESTful API.
+~~The goal of this project is to practice building a RESTful API.~~
 
-Although i've built one before, I thought it would be good practice to create
-another one.
+~~Although i've built one before, I thought it would be good practice to create
+another one.~~
 
-So, I intend to create a small javascript project that utilizes node.js and
+~~So, I intend to create a small javascript project that utilizes node.js and
 express as its backend.~~
 
 **Note:** Postman was used to test the routing of this application.
@@ -93,13 +93,13 @@ server.
 
 Thanks Postman.
 
-~~### Development Stack:
+~~### Development Stack:~~
 
 - HTML5
 - CSS3
 - Javascript
 - Node.js
-- Express.js~~
+- Express.js
 
 ## Version History:
 
