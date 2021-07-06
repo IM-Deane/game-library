@@ -4,27 +4,42 @@
 
 TODO: Add link to a live demo
 
-**Current Version:** 0.1.18
+**Current Version:** 1.0.0
 
 ## Important Notice:
 
 Although I've made this application responsive, it is best used on a desktop
 computer or larger device (widths > 650px are ideal).
 
-## Expanded Version Description:
+## Description:
 
-This project began as a simple backend Express.js application. My goal was
-simply to practice building a RESTful API.
+_Overview:_ This project began as a simple backend Express.js application. My
+goal was to practice building a RESTful API.
 
-However, after completing the API I've decided to make the app more interesting.
-The next version will feature a client side interface that allows users to
-manage a small game library.
+However, after completing the API, I've taken additional steps to enhance the
+app.
 
-The app will come populated with 10 games that will be rendered as a list. The
-user can add new games to the library as well edit and delete existing titles.
+This new version features a client side interface that allows users to manage a
+small game library.
 
-The expected outcome of this new version is a small but fully functional MERN
-application.
+_On Authorization & Authentication:_ To access the libary and CRUD
+functionality, the user must first sign in. Currently, the application simply
+stores the user credentials to an .env varirable.
+
+This is definitely not okay for a true production app as it's not aligned with
+industry best practices.
+
+However, as the main focus of the app is on CRUD operations, I'm ok with keeping
+the authentication and authorization relatively basic.
+
+_Features & Functionality:_ Once the user has successfully signed in, they will
+have full access to the game manager.
+
+The default app is pre-populated with 12 games, however, the user can add new
+ones to the library as well as edit and delete the existing titles.
+
+_Outcome:_ The expected outcome of this new version is a small but fully
+functional MERN application.
 
 After it's completion, I will have hopefully solidified my understanding of this
 development stack.
@@ -39,13 +54,13 @@ development stack.
 
 ## Previous Version:
 
-~~The goal of this project is to practice building a RESTful API.~~
+~~The goal of this project is to practice building a RESTful API.
 
 Although i've built one before, I thought it would be good practice to create
 another one.
 
 So, I intend to create a small javascript project that utilizes node.js and
-express as its backend.
+express as its backend.~~
 
 **Note:** Postman was used to test the routing of this application.
 
@@ -70,15 +85,25 @@ server.
 
 Thanks Postman.
 
-### Development Stack:
+~~### Development Stack:
 
 - HTML5
 - CSS3
 - Javascript
 - Node.js
-- Express.js
+- Express.js~~
 
 ## Version History:
+
+**Version 1.0.0:**
+
+After refactoring several components and testing the changes, I believe the
+application is ready to launch.
+
+I plan to deploy the server to Heroku and host the client side on Netlify.
+
+After successfully deploying the app, I will add the client side link to this
+README.md file.
 
 **Version 0.1.18:**
 
