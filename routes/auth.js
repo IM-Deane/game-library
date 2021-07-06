@@ -6,20 +6,20 @@ export default router.post("/", (req, res) => {
 	const { username, password } = req.body;
 
 	try {
-		// Validate attempt
-		if (
-			username !== process.env.USERNAME ||
-			password !== process.env.USER_PASSWORD
-		)
-			return res
-				.status(403)
-				.send(
-					"Login Attempt has failed. Your email or password are incorrect."
-				);
+		// Validate signin attempt
+		if (username !== process.env.USERNAME)
+			return res.send({ message: "Username is incorrect", username });
+		if (password !== process.env.USER_PASSWORD)
+			return res.send({
+				message:
+					"Password is incorrect...Try clicking 'Forgot your password' ; )",
+				password,
+			});
+
 		// User valid, send token
 		res.status(200).json({ token: "valid123" });
 	} catch (error) {
 		console.log(error);
-		res.status(403).json({ message: error });
+		res.json({ message: error });
 	}
 });

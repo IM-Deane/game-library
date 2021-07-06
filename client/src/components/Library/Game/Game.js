@@ -1,15 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 
 import { Link as RouterLink } from "react-router-dom";
 
-import {
-	Grid,
-	Card,
-	Link,
-	CardContent,
-	CardMedia,
-	Typography,
-} from "@material-ui/core";
+import { Grid, Card, Link, CardMedia } from "@material-ui/core";
 
 import { useStyles } from "./styles";
 

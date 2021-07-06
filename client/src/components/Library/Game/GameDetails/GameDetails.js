@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { useHistory, useParams, Link as RouterLink } from "react-router-dom";
 
 import { updateGame, deleteGame } from "../../../../api/index";
-import _ from "lodash";
 
 import {
 	Container,

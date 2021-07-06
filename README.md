@@ -4,7 +4,7 @@
 
 TODO: Add link to a live demo
 
-**Current Version:** 0.1.14
+**Current Version:** 0.1.16
 
 ## Important Notice:
 
@@ -79,6 +79,24 @@ Thanks Postman.
 - Express.js
 
 ## Version History:
+
+**Version 0.1.16:**
+
+Added basic input validation to the user sign in page.
+
+Currently, the submit button will become disabled if either input field is
+blank.
+
+The form will also render an error message if either field is incorrect.
+
+Finally, as this is just a demo app, I've hidden the user credentials inside the
+form.
+
+The user can simply click the "Forgot your password?" link to display the proper
+credentials.
+
+If the user submits the wrong password, the error message will prompt them to
+click the link as well.
 
 **Version 0.1.15:**
 

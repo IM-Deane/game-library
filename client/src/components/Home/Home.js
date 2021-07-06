@@ -11,33 +11,89 @@ import {
 	TextField,
 	Button,
 } from "@material-ui/core";
+import { Alert, AlertTitle } from "@material-ui/lab";
 
 import SportsEsportsIcon from "@material-ui/icons/SportsEsports";
 
 import { useStyles } from "./styles";
 
 const Home = () => {
+	// Hooks
 	const classes = useStyles();
+	const history = useHistory();
+
+	// State
 	const [signIn, setSignIn] = useState({
 		username: "GamerGuy16",
 		password: "",
+		error: false,
+		errorMessage: {},
 	});
 	const [showHint, setShowHint] = useState(false);
+	const [confirmation, setConfirmation] = useState(false);
 
-	const history = useHistory();
+	// Handle alert box
+	const toggleConfirmationDialog = () => setConfirmation(!confirmation);
 
 	// Handle sign in
 	const handleFormChange = (e) => {
 		setSignIn({ ...signIn, [e.target.name]: e.target.value });
 	};
 
+	const validateSignIn = (data) => {
+		let isError = false;
+
+		// Username is incorrect
+		if (data.username) {
+			isError = true;
+			setSignIn({
+				...signIn,
+				error: true,
+				errorMessage: {
+					username: data.message,
+				},
+			});
+			// Password is incorrect
+		} else if (data.password) {
+			isError = true;
+			setSignIn({
+				...signIn,
+				error: true,
+				errorMessage: {
+					password: data.message,
+				},
+			});
+		}
+
+		// Handle other errors
+		else if (data.message) {
+			isError = true;
+			return (
+				<Alert
+					className={classes.alert}
+					severity="error"
+					variant="filled"
+					onClose={() => toggleConfirmationDialog()}
+				>
+					<AlertTitle>Error</AlertTitle>
+					{data.message}
+				</Alert>
+			);
+		}
+
+		return isError;
+	};
+
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 
 		const { data } = await signin(signIn);
+		const isError = validateSignIn(data);
+		// Throw errors
+		if (isError) return;
 
-		if (!data.token)
-			return alert("Sorry, your username or password is incorrect.");
+		// if (!data.token)
+		// 	return alert("Sorry, your username or password is incorrect.");
 
 		const token = data.token;
 
@@ -62,6 +118,7 @@ const Home = () => {
 					</Typography>
 					<form className={classes.form} noValidate onSubmit={handleSubmit}>
 						<TextField
+							error={!!signIn.errorMessage.username}
 							variant="outlined"
 							margin="normal"
 							required
@@ -69,25 +126,35 @@ const Home = () => {
 							id="username"
 							label="Username"
 							name="username"
+							helperText={
+								signIn.errorMessage.username && signIn.errorMessage.username
+							}
 							defaultValue="GamerGuy16"
 							autoComplete="username"
 							type="text"
-							autoFocus
 							onChange={handleFormChange}
 						/>
 						<TextField
+							error={!!signIn.errorMessage.password}
 							variant="outlined"
 							margin="normal"
 							required
 							fullWidth
 							name="password"
 							label="Password"
+							helperText={
+								signIn.errorMessage.password && signIn.errorMessage.password
+							}
 							type="password"
 							id="password"
 							autoComplete="current-password"
+							autoFocus
 							onChange={handleFormChange}
 						/>
 						<Button
+							disabled={
+								signIn.username.length === 0 || signIn.password.length === 0
+							}
 							type="submit"
 							fullWidth
 							variant="contained"
@@ -103,11 +170,22 @@ const Home = () => {
 									variant="body2"
 									onClick={() => setShowHint(!showHint)}
 								>
-									{"Forgot your password?"}
+									{showHint
+										? "Here are your credentials:"
+										: "Forgot your password?"}
 								</Link>
-								<div style={{ display: `${showHint ? "block" : "none"}` }}>
-									<p>Username: GamerGuy16</p>
-									<p>Password: gameManager123</p>
+								<div
+									style={{
+										display: `${showHint ? "block" : "none"}`,
+									}}
+								>
+									<p>
+										Username: <span style={{ color: "blue" }}>GamerGuy16</span>
+									</p>
+									<p>
+										Password:{" "}
+										<span style={{ color: "blue" }}>gameManager123</span>
+									</p>
 								</div>
 							</Grid>
 						</Grid>
