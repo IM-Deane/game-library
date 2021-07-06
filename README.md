@@ -4,7 +4,7 @@
 
 [Live Site](https://mern-game-library-manager.netlify.app/)
 
-**Current Version:** 1.0.0
+**Current Version:** 1.0.1
 
 ## Important Notice:
 
@@ -102,6 +102,35 @@ Thanks Postman.
 - Express.js
 
 ## Version History:
+
+**Version 1.0.1:**
+
+After about an hour fighting with a bug (\*see below), i've finally deployed
+both the client and server sides of the application.
+
+A link to the client side can be found at the beginning of this document.
+
+This was a fun project that I'm pretty darn happy with. In the future, I may add
+more features such as a "favourite lists" and true authentication.
+
+For the moment, I'll be adding this app to my portfolio and moving on to the
+next project.
+
+Bye for now!
+
+- Note on the bug:
+
+For those who're interested in the bug, Heroku wasn't picking up my server side
+.env file. Which means it would crash when establishing the database connection.
+
+For whatever reason, the command line heroku logs were very sparse on what the
+actual error was. However, after some research, I learned that the application
+logs on the app's Heroku dashboard provide more info.
+
+This led me to the database connection error.
+
+It's moments like these that make me question my decision to pursue such an
+abusive career path.
 
 **Version 1.0.0:**
 
