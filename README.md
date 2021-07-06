@@ -13,8 +13,10 @@ computer or larger device (widths > 650px are ideal).
 
 ## Description:
 
-_Overview:_ This project began as a simple backend Express.js application. My
-goal was to practice building a RESTful API.
+**Overview:**
+
+This project began as a simple backend Express.js application. My goal was to
+practice building a RESTful API.
 
 However, after completing the API, I've taken additional steps to enhance the
 app.
@@ -22,9 +24,11 @@ app.
 This new version features a client side interface that allows users to manage a
 small game library.
 
-_On Authorization & Authentication:_ To access the libary and CRUD
-functionality, the user must first sign in. Currently, the application simply
-stores the user credentials to an .env varirable.
+**On Authorization & Authentication:**
+
+To access the libary and CRUD functionality, the user must first sign in.
+Currently, the application simply stores the user credentials to an .env
+varirable.
 
 This is definitely not okay for a true production app as it's not aligned with
 industry best practices.
@@ -32,14 +36,18 @@ industry best practices.
 However, as the main focus of the app is on CRUD operations, I'm ok with keeping
 the authentication and authorization relatively basic.
 
-_Features & Functionality:_ Once the user has successfully signed in, they will
-have full access to the game manager.
+**Features & Functionality:**
+
+Once the user has successfully signed in, they will have full access to the game
+manager.
 
 The default app is pre-populated with 12 games, however, the user can add new
 ones to the library as well as edit and delete the existing titles.
 
-_Outcome:_ The expected outcome of this new version is a small but fully
-functional MERN application.
+**Outcome:**
+
+The expected outcome of this new version is a small but fully functional MERN
+application.
 
 After it's completion, I will have hopefully solidified my understanding of this
 development stack.
